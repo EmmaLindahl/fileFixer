@@ -1,12 +1,14 @@
-const fs = require('fs')
+const fs = require('fs');
+require('dotenv').config();
+const filePath = process.env.FILE_PATH;
 
-fs.readFile('C:\\Users\\emmas\\Desktop\\filestorter\\test.txt', 'utf8', (err, data) => {
+fs.readFile(filePath, 'utf8', (err, data) => {
     if(err){
         console.error('Error reading file:', err);
         return
     }
     let changedText = data.replace('2', '4')
-    fs.writeFile('C:\\Users\\emmas\\Desktop\\filestorter\\test.txt', changedText, (err) =>{
+    fs.writeFile(filePath, changedText, (err) =>{
         if(err){
             console.log('Error writing file;', err);
             return
